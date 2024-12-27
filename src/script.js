@@ -4,6 +4,8 @@ import { RGBELoader } from "three/addons/loaders/RGBELoader.js";
 import GUI from "lil-gui";
 import { SUBTRACTION, Evaluator, Brush } from "three-bvh-csg";
 import CustomShaderMaterial from "three-custom-shader-material/vanilla";
+import terrainFragmentShader from "../src/shaders/terrain/fragment.glsl";
+import terrainVertexShader from "../src/shaders/terrain/vertex.glsl";
 
 /**
  * Base
