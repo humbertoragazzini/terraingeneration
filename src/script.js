@@ -32,13 +32,8 @@ rgbeLoader.load("/spruit_sunrise.hdr", (environmentMap) => {
 });
 
 /**
- * Placeholder
+ * Terrain
  */
-const placeholder = new THREE.Mesh(
-    new THREE.IcosahedronGeometry(2, 5),
-    new THREE.MeshPhysicalMaterial()
-);
-scene.add(placeholder);
 
 /**
  * Board
@@ -50,7 +45,14 @@ const boardHole = new Brush(new THREE.BoxGeometry(10, 2.1, 10));
 //Evaluator
 const evaluator = new Evaluator();
 const board = evaluator.evaluate(boardFill, boardHole, SUBTRACTION);
-
+board.geometry.clearGroups();
+board.material = new THREE.MeshDistanceMaterial({
+    color: "#ffffff",
+    metalness: 0,
+    roughness: 0.3,
+});
+board.castShadow = true;
+board.receiveShadow = true;
 scene.add(board);
 /**
  * Lights
