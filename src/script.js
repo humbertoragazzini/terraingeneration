@@ -34,7 +34,9 @@ rgbeLoader.load("/spruit_sunrise.hdr", (environmentMap) => {
 /**
  * Terrain
  */
-
+//Terrain
+const geometry = new THREE.PlaneGeometry(10, 10, 500, 500);
+geometry.rotateX(-Math.PI * 0.5);
 /**
  * Board
  */
@@ -46,7 +48,7 @@ const boardHole = new Brush(new THREE.BoxGeometry(10, 2.1, 10));
 const evaluator = new Evaluator();
 const board = evaluator.evaluate(boardFill, boardHole, SUBTRACTION);
 board.geometry.clearGroups();
-board.material = new THREE.MeshDistanceMaterial({
+board.material = new THREE.MeshStandardMaterial({
     color: "#ffffff",
     metalness: 0,
     roughness: 0.3,
