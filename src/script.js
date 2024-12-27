@@ -44,7 +44,7 @@ geometry.rotateX(-Math.PI * 0.5);
 //Material
 const material = new CustomShaderMaterial({
     //CSM
-    baseMaterial: THREE.MeshDistanceMaterial,
+    baseMaterial: THREE.MeshStandardMaterial,
     silent: true,
 
     //MeshStandardMaterual
@@ -55,7 +55,9 @@ const material = new CustomShaderMaterial({
 
 //Mesh
 const terrain = new THREE.Mesh(geometry, material);
-
+terrain.castShadow = true;
+terrain.receiveShadow = true;
+scene.add(terrain);
 /**
  * Board
  */
