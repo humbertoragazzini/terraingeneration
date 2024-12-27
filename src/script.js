@@ -53,6 +53,9 @@ const material = new CustomShaderMaterial({
     color: "#85d534",
 });
 
+//Mesh
+const terrain = new THREE.Mesh(geometry, material);
+
 /**
  * Board
  */
