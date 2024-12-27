@@ -6,6 +6,7 @@ import { SUBTRACTION, Evaluator, Brush } from "three-bvh-csg";
 /**
  * Base
  */
+
 // Debug
 const gui = new GUI({ width: 325 });
 const debugObject = {};
@@ -48,7 +49,9 @@ const boardHole = new Brush(new THREE.BoxGeometry(10, 2.1, 10));
 
 //Evaluator
 const evaluator = new Evaluator();
+const board = evaluator.evaluate(boardFill, boardHole, SUBTRACTION);
 
+scene.add(board);
 /**
  * Lights
  */
