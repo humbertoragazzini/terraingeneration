@@ -47,6 +47,8 @@ geometry.rotateX(-Math.PI * 0.5);
 const material = new CustomShaderMaterial({
     //CSM
     baseMaterial: THREE.MeshStandardMaterial,
+    vertexShader: terrainVertexShader,
+    fragmentShader: terrainFragmentShader,
     silent: true,
 
     //MeshStandardMaterual
