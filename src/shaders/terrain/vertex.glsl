@@ -6,7 +6,7 @@ float getElevation(vec2 position){
 
 void main(){
  //Elevation
- float elevation = getElevation(csm_position.xz);
- csm_position.y += elevation;
+ float elevation = getElevation(csm_Position.xz);
+ csm_Position.y += elevation;
 
 }
