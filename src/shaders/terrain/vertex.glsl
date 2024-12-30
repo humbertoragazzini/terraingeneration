@@ -7,7 +7,11 @@ float getElevation(vec2 position){
 	elevation += simplexNoise2d(position*uPositionFrecuency*2.0)/ 4.0;
   elevation += simplexNoise2d(position*uPositionFrecuency*4.0)/ 8.0;
 	
-	return elevation;
+  float elevationSign = sign(elevation);
+
+  elevation = pow(abs(elevation), 2.0) * elevationSign;
+
+  return elevation;
 }
 
 void main(){
