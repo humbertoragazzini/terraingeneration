@@ -3,9 +3,15 @@
 float getElevation(vec2 position){
   float uPositionFrecuency = 0.2;
   float elevation = 0.0;
-  elevation += simplexNoise2d(position*uPositionFrecuency)/ 2.0;
-	elevation += simplexNoise2d(position*uPositionFrecuency*2.0)/ 4.0;
-  elevation += simplexNoise2d(position*uPositionFrecuency*4.0)/ 8.0;
+  float uStrength = 2.0;
+  float uWarpFrecuency = 5.0;
+  float uWarpStrength = 0.5;
+
+  vec2 warpPosition = position;
+  warpPosition += simplexNoise2d(warpPosition * uPositionFrecuency * uWarpFrecuency) * uWarpStrength;
+  elevation += simplexNoise2d(warpPosition*uPositionFrecuency)/ 2.0;
+	elevation += simplexNoise2d(warpPosition*uPositionFrecuency*2.0)/ 4.0;
+  elevation += simplexNoise2d(warpPosition*uPositionFrecuency*4.0)/ 8.0;
 	
   float elevationSign = sign(elevation);
 

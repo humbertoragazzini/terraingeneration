@@ -43,10 +43,16 @@ rgbeLoader.load("/spruit_sunrise.hdr", (environmentMap) => {
 const geometry = new THREE.PlaneGeometry(10, 10, 500, 500);
 geometry.deleteAttribute("uv");
 geometry.deleteAttribute("normal");
-
 geometry.rotateX(-Math.PI * 0.5);
 
 //Material
+
+const uniforms = {
+    uPositionFrecuency: new THREE.Uniform(0.2),
+    uStrength: new THREE.Uniform(2.0),
+    uWarpFrecuency: new THREE.Uniform(5),
+    uWarpStrength: new THREE.Uniform(0.5),
+};
 const material = new CustomShaderMaterial({
     //CSM
     baseMaterial: THREE.MeshStandardMaterial,
