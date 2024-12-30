@@ -16,5 +16,6 @@ void main(){
   //Elevation
  float elevation = getElevation(csm_Position.xz);
  csm_Position.y += elevation;
-
+ positionA.y = getElevation(positionA.xz);
+ positionB.y = getElevation(positionB.xz);
 }
