@@ -40,7 +40,7 @@ rgbeLoader.load("/spruit_sunrise.hdr", (environmentMap) => {
  */
 
 //Terrain
-const geometry = new THREE.PlaneGeometry(10, 10, 500, 500);
+const geometry = new THREE.PlaneGeometry(10, 10, 1500, 1500);
 geometry.deleteAttribute("uv");
 geometry.deleteAttribute("normal");
 geometry.rotateX(-Math.PI * 0.5);
@@ -57,8 +57,8 @@ const uniforms = {
 gui.add(uniforms.uPositionFrecuency, "value", 0, 1, 0.001).name(
     "uPositionFrecuency"
 );
-gui.add(uniforms.uStrength, "value", 0, 1, 0.001).name("uStrength");
-gui.add(uniforms.uWarpFrecuency, "value", 0, 1, 0.001).name("uWarpFrecuency");
+gui.add(uniforms.uStrength, "value", 0, 10, 0.001).name("uStrength");
+gui.add(uniforms.uWarpFrecuency, "value", 0, 10, 0.001).name("uWarpFrecuency");
 gui.add(uniforms.uWarpStrength, "value", 0, 1, 0.001).name("uWarpStrength");
 
 const material = new CustomShaderMaterial({
@@ -67,7 +67,7 @@ const material = new CustomShaderMaterial({
     vertexShader: terrainVertexShader,
     fragmentShader: terrainFragmentShader,
     silent: true,
-
+    uniforms: uniforms,
     //MeshStandardMaterual
     metalness: 0,
     roughness: 0.5,
