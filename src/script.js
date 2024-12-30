@@ -53,6 +53,14 @@ const uniforms = {
     uWarpFrecuency: new THREE.Uniform(5),
     uWarpStrength: new THREE.Uniform(0.5),
 };
+
+gui.add(uniforms.uPositionFrecuency, "value", 0, 1, 0.001).name(
+    "uPositionFrecuency"
+);
+gui.add(uniforms.uStrength, "value", 0, 1, 0.001).name("uStrength");
+gui.add(uniforms.uWarpFrecuency, "value", 0, 1, 0.001).name("uWarpFrecuency");
+gui.add(uniforms.uWarpStrength, "value", 0, 1, 0.001).name("uWarpStrength");
+
 const material = new CustomShaderMaterial({
     //CSM
     baseMaterial: THREE.MeshStandardMaterial,
