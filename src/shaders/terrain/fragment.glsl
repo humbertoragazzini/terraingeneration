@@ -1,3 +1,12 @@
+uniform uColorWaterDeep;
+uniform uColorWaterSurface;
+uniform uColorSand;
+uniform uColorGrass;
+uniform uColorSnow;
+uniform uColorRock;
+
+
+
 void main(){
   vec3 color = vec3(1.0);
 
