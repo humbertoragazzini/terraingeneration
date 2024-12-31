@@ -48,6 +48,7 @@ geometry.rotateX(-Math.PI * 0.5);
 //Material
 
 const uniforms = {
+    uTime: new THREE.Uniform(0),
     uPositionFrecuency: new THREE.Uniform(0.2),
     uStrength: new THREE.Uniform(2.0),
     uWarpFrecuency: new THREE.Uniform(5),
@@ -175,6 +176,9 @@ const clock = new THREE.Clock();
 
 const tick = () => {
     const elapsedTime = clock.getElapsedTime();
+
+    // Update uTime
+    uniforms.uTime.value = elapsedTime;
 
     // Update controls
     controls.update();
