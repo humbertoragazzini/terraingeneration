@@ -45,6 +45,14 @@ geometry.deleteAttribute("uv");
 geometry.deleteAttribute("normal");
 geometry.rotateX(-Math.PI * 0.5);
 
+//Colors
+debugObject.colorWaterDeep = "#002b3d";
+debugObject.colorWaterSurface = "#66a8ff";
+debugObject.colorSand = "#ffe894";
+debugObject.colorGrass = "#85d534";
+debugObject.colorSnow = "#ffffff";
+debugObject.colorRock = "#bfbd8d";
+
 //Material
 
 const uniforms = {
@@ -53,6 +61,16 @@ const uniforms = {
     uStrength: new THREE.Uniform(2.0),
     uWarpFrecuency: new THREE.Uniform(5),
     uWarpStrength: new THREE.Uniform(0.5),
+    uColorWaterDeep: new THREE.Uniform(
+        new THREE.Color(debugObject.colorWaterDeep)
+    ),
+    uColorWaterSurface: new THREE.Uniform(
+        new THREE.Color(debugObject.colorWaterSurface)
+    ),
+    uColorSand: new THREE.Uniform(new THREE.Color(debugObject.colorSand)),
+    uColorGrass: new THREE.Uniform(new THREE.Color(debugObject.colorGrass)),
+    uColorSnow: new THREE.Uniform(new THREE.Color(debugObject.colorSnow)),
+    uColorRock: new THREE.Uniform(new THREE.Color(debugObject.colorRock)),
 };
 
 gui.add(uniforms.uPositionFrecuency, "value", 0, 1, 0.001).name(
@@ -61,6 +79,30 @@ gui.add(uniforms.uPositionFrecuency, "value", 0, 1, 0.001).name(
 gui.add(uniforms.uStrength, "value", 0, 10, 0.001).name("uStrength");
 gui.add(uniforms.uWarpFrecuency, "value", 0, 10, 0.001).name("uWarpFrecuency");
 gui.add(uniforms.uWarpStrength, "value", 0, 1, 0.001).name("uWarpStrength");
+gui.addColor(debugObject, "colorWaterDeep");
+gui.addColor(debugObject, "colorWaterSurface");
+gui.addColor(debugObject, "colorSand");
+gui.addColor(debugObject, "colorGrass");
+gui.addColor(debugObject, "colorSnow");
+gui.addColor(debugObject, "colorRock");
+gui.addColor(debugObject, "colorWaterDeep").onChange(() =>
+    uniforms.uColorWaterDeep.value.set(debugObject.colorWaterDeep)
+);
+gui.addColor(debugObject, "colorWaterSurface").onChange(() =>
+    uniforms.uColorWaterSurface.value.set(debugObject.colorWaterSurface)
+);
+gui.addColor(debugObject, "colorSand").onChange(() =>
+    uniforms.uColorSand.value.set(debugObject.colorSand)
+);
+gui.addColor(debugObject, "colorGrass").onChange(() =>
+    uniforms.uColorGrass.value.set(debugObject.colorGrass)
+);
+gui.addColor(debugObject, "colorSnow").onChange(() =>
+    uniforms.uColorSnow.value.set(debugObject.colorSnow)
+);
+gui.addColor(debugObject, "colorRock").onChange(() =>
+    uniforms.uColorRock.value.set(debugObject.colorRock)
+);
 
 const material = new CustomShaderMaterial({
     //CSM
@@ -86,6 +128,7 @@ const depthMaterial = new CustomShaderMaterial({
 
 //Mesh
 const terrain = new THREE.Mesh(geometry, material);
+terrain.depthMaterial = depthMaterial;
 terrain.castShadow = true;
 terrain.receiveShadow = true;
 scene.add(terrain);
