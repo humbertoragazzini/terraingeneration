@@ -45,4 +45,5 @@ void main(){
  
  //Varying
  vPosition = csm_Position;
+ vPosition.xz += uTime * 0.2;
 }
