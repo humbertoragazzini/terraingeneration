@@ -132,6 +132,23 @@ terrain.depthMaterial = depthMaterial;
 terrain.castShadow = true;
 terrain.receiveShadow = true;
 scene.add(terrain);
+
+/**
+ * Water
+ */
+const water = new THREE.Mesh(
+    new THREE.PlaneGeometry(10, 10, 1, 1),
+    new THREE.MeshPhysicalMaterial({
+        transmission: 1.0,
+        roughness: 0.3,
+    })
+);
+
+water.rotation.x = -Math.PI * 0.5;
+water.position.y = -0.1;
+
+scene.add(water);
+
 /**
  * Board
  */
