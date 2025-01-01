@@ -5,6 +5,8 @@ uniform float uWarpFrecuency;
 uniform float uWarpStrength;
 uniform float uTime;
 varying vec3 vPosition;
+varying float vUpDot;
+
 float getElevation(vec2 position){
   //float uPositionFrecuency = 0.2;
   float elevation = 0.0;
@@ -46,4 +48,5 @@ void main(){
  //Varying
  vPosition = csm_Position;
  vPosition.xz += uTime * 0.2;
+ vUpDot = dot(csm_Normal,vec3(0.0,1.0,0.0));
 }
