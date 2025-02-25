@@ -1,6 +1,6 @@
 # terraingeneration MiniProject - Humberto Ragazzini
 
-This is a mini project where i show procedural terrain generation visit the example here: [terraingeneration](https://humbertoragazzini.github.io/terraingeneration/dist/)
+This is a mini project where i show procedural terrain generation visit the example here: [terraingeneration](https://humbertoragazzini.github.io/terraingeneration/)
 
 # **Frameworks and Tecnologies**
 
@@ -24,7 +24,7 @@ This is a mini project where i show procedural terrain generation visit the exam
 3. In this tab select settings.
 4. Click in pages in the option menu.
 5. Select in source branch master.
-6. Save, the project is deployed in github pages in the following link:[terraingeneration](https://humbertoragazzini.github.io/terraingeneration/dist/)
+6. Save, the project is deployed in github pages in the following link:[terraingeneration](https://humbertoragazzini.github.io/terraingeneration/)
 
 ## **To clone my repository in github**
 
